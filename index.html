@@ -15,20 +15,18 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <!-- Navigation-->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="#page_top"><img src="assets/theater.png" width="80rem" height="me-auto" alt="disney_icon"></a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
+                    Menú
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#catalogo">Catálogo</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#mi_carrito">Carrito</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#nosotros">Nosotros</a>
-                        </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacto">Contáctanos</a>
                         </li>
                     </ul>
@@ -71,14 +69,14 @@
                 <div class="card">
                     <img src="" class="car-img-top">
                     <div class="card-body">
-                    <h5>Título</h5>
+                    <h5>Personaje</h5>
                     <p>Precio</p>
                     <button class="btn btn-dark">Alquilar</button>
                     </div>
                 </div>
             </div>
         </template>
-        <!-- Template PK columnas disfraces en carrito -->  
+        <!-- Template PK columnas carrito -->  
         <section class="page-section" id="mi_carrito">
             <div class="container"> 
                 <h4>Hoy seré...</h4> 
@@ -86,16 +84,16 @@
                     <thead>
                         <tr>        
                             <th scope="col">Id</th>  
-                            <th scope="col">Disfraz</th>
+                            <th scope="col">Personaje</th>
                             <th scope="col">Cantidad</th>
-                            <th scope="col">+/-</th>
+                            <th scope="col">Acción</th>
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
-                    <tbody id="items"></tbody>
+                    <tbody id="disfraces"></tbody>
                     <tfoot>
                         <tr id="footer-table">
-                        <th scope="row" colspan="5">blablabla</th>
+                        <th scope="row" colspan="5"></th>
                     </tr>
                     </tfoot>
                 </table> 
@@ -104,131 +102,111 @@
                     <tr>
                     <th scope="row">id</th>
                         <td>Disfraz</td>
-                    <td>Cantidad</td>
-                    <td>
-                        <button class="btn btn-info btn-sm">
-                            +
-                        </button>
-                        <button class="btn btn-danger btn-sm">
-                            -
-                        </button>
-                    </td>
-                    <td>$ <span>Precio</span></td>
+                        <td>Cantidad</td>
+                        <td>
+                            <button class="btn btn-info btn-sm">
+                                +
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                -
+                            </button>
+                        </td>
+                        <td>$ <span>Precio</span></td>
                     </tr>
                 </template>
                 <!-- Template suma carrito -->
                 <template id="template-carrito-footer">
-                <th scope="row" colspan="2">Total disfraces</th>
-                <td>Cantidad</td>
-                <td>
-                    <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-                        blablabla
-                    </button>
-                </td>
-                <td class="font-weight-bold">$ <span>blablabla</span></td>
+                    <th scope="row" colspan="2">Total disfraces</th>
+                    <td>Cantidad</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                        </button>
+                    </td>
+                    <td class="font-weight-bold">$ <span>Precio</span></td>
                 </template>
             </div>  
         </section>
         <!-- Nosotros Section -->
-        <section id="nosotros">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <section class="carousel-disney">
+            <div class="container">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/carousel/carousel01.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/carousel/carousel02.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/carousel/carousel03.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/carousel/carousel04.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/carousel/carousel05.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/carousel/carousel06.png" class="d-block w-100" alt="...">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="assets/carousel/carousel01.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/carousel/carousel02.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/carousel/carousel03.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/carousel/carousel04.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/carousel/carousel05.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/carousel/carousel06.png" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
+            </div>
         </section>       
-        <!-- Contact Section-->
+        <!-- Contacto Section -->
         <section class="page-section" id="contacto">
             <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Contact Section Form-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contáctanos</h2>
+                <div class="divider-custom divider-light"></div>
+                <!-- Contacto Section Form -->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
+                            <!-- Name input -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre y apellido" data-sb-validations="required" />
+                                <label for="name">Nombre y apellido</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Campo obligatorio.</div>
                             </div>
-                            <!-- Email address input-->
+                            <!-- Email address input -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <input class="form-control" id="email" type="email" placeholder="Ingresa tu email" data-sb-validations="required,email" />
+                                <label for="email">Email</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Campo obligatorio.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email no válido.</div>
                             </div>
-                            <!-- Phone number input-->
+                            <!-- Message input -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <textarea class="form-control" id="message" type="text" placeholder="Escribe tu mensaje" style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Mensaje</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Campo obligatorio.</div>
                             </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
+                            <!-- Submit success message -->
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    <div class="fw-bolder">¡Gracias! Te estaremos escribiendo a la brevedad <img src="assets/mickey.png" width="50rem"></div>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
+                            <!-- Submit error message -->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                            <!-- Submit Button -->
+                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Enviar</button>
                         </form>
                     </div>
                 </div>
@@ -240,22 +218,25 @@
                 <div class="row">
                     <!-- Footer Location -->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            2215 John Daniel Drive
-                            <br />
-                            Clark, MO 65243
-                        </p>
+                        <h4 class="text-uppercase mb-4">ELEGÍ CÓMO PAGAR</h4>
+                        <p>Podés pagar con crédito o débito, en efectivo, tranferencia desde tu homebanking o con tu cuenta de Mercado Pago</p>
+                        <div class="container flex-column">
+                            <span><img src="assets/payment/visa.png" width="30rem" style="background-color: white; border-radius: 0.5rem;"></span>
+                            <span><img src="assets/payment/mastercard.png" width="40rem"></span>
+                            <span><img src="assets/payment/pagofacil.png" width="30rem"></span>
+                            <span><img src="assets/payment/redlink.png" width="30rem"></span>
+                            <span><img src="assets/payment/mercadopago.png" width="45rem"></span>
+                        </div>
                     </div>
                     <!-- Footer Social Icons -->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><img src="assets/github.png" width="50rem"></i></a>
+                        <h4 class="text-uppercase mb-4">ESTAMOS EN LA WEB</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><img src="assets/github.png" width="50rem"></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/rafaela-dominici/" target="blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
                     </div>
                     <!-- Footer About Text -->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">ENVÍOS A TODO EL PAÍS verrrrrr</h4>
                         <p class="lead mb-0">
                             Freelance is a free to use, MIT licensed Bootstrap theme created by
                             <a href="http://startbootstrap.com">Start Bootstrap</a>
@@ -267,7 +248,7 @@
         </footer>
         <!-- Copyright -->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; - Rafaela Dominici</small></div>
+            <div class="container"><small>Todos los derechos reservados &copy; - Rafaela Dominici</small></div>
         </div>
 
         <!-- JQuery -->

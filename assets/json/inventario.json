@@ -1,74 +1,74 @@
 [
     {
-      "precio": 750,
       "id": 1,
-      "title": "Bella",
+      "precio": 750,
+      "personaje": "Bella",
       "image": "assets/images/bella.png"
     },
     {
-      "precio": 600,
       "id": 2,
-      "title": "Ariel",
+      "precio": 600,
+      "personaje": "Ariel",
       "image": "assets/images/ariel.png"
     },
     {
-      "precio": 650,
       "id": 3,
-      "title": "Moana",
+      "precio": 650,
+      "personaje": "Moana",
       "image": "assets/images/moana.png"
     },
     {
-      "precio": 850,
       "id": 4,
-      "title": "Cenicienta",
+      "precio": 850,
+      "personaje": "Cenicienta",
       "image": "assets/images/cenicienta.png"
     },
     {
-      "precio": 700,
       "id": 5,
-      "title": "Pocahontas",
+      "precio": 700,
+      "personaje": "Pocahontas",
       "image": "assets/images/pocahontas.png"
     },
     {
-      "precio": 750,
       "id": 6,
-      "title": "Rapunzel",
+      "precio": 750,
+      "personaje": "Rapunzel",
       "image": "assets/images/rapunzel.png"
     },
     {
-      "precio": 800,
       "id": 7,
-      "title": "Aurora",
+      "precio": 800,
+      "personaje": "Aurora",
       "image": "assets/images/aurora.png"
     },
     {
-      "precio": 650,
       "id": 8,
-      "title": "Mulán",
+      "precio": 650,
+      "personaje": "Mulán",
       "image": "assets/images/mulan.png"
     },
     {
-      "precio": 600,
       "id": 9,
-      "title": "Jazmín",
+      "precio": 600,
+      "personaje": "Jazmín",
       "image": "assets/images/jazmin.png"
     },
     {
-      "precio": 850,
       "id": 10,
-      "title": "Mérida",
+      "precio": 850,
+      "personaje": "Mérida",
       "image": "assets/images/merida.png"
     },
     {
-      "precio": 700,
       "id": 11,
-      "title": "Tiana",
+      "precio": 700,
+      "personaje": "Tiana",
       "image": "assets/images/tiana.png"
     },
     {
-      "precio": 700,
       "id": 12,
-      "title": "Blanca Nieves",
+      "precio": 700,
+      "personaje": "Blanca Nieves",
       "image": "assets/images/blanca_nieves.png"
     }
   ]
