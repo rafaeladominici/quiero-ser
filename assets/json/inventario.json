@@ -1,0 +1,74 @@
+[
+    {
+      "precio": 750,
+      "id": 1,
+      "title": "Bella",
+      "image": "assets/images/bella.png"
+    },
+    {
+      "precio": 600,
+      "id": 2,
+      "title": "Ariel",
+      "image": "assets/images/ariel.png"
+    },
+    {
+      "precio": 650,
+      "id": 3,
+      "title": "Moana",
+      "image": "assets/images/moana.png"
+    },
+    {
+      "precio": 850,
+      "id": 4,
+      "title": "Cenicienta",
+      "image": "assets/images/cenicienta.png"
+    },
+    {
+      "precio": 700,
+      "id": 5,
+      "title": "Pocahontas",
+      "image": "assets/images/pocahontas.png"
+    },
+    {
+      "precio": 750,
+      "id": 6,
+      "title": "Rapunzel",
+      "image": "assets/images/rapunzel.png"
+    },
+    {
+      "precio": 800,
+      "id": 7,
+      "title": "Aurora",
+      "image": "assets/images/aurora.png"
+    },
+    {
+      "precio": 650,
+      "id": 8,
+      "title": "Mulán",
+      "image": "assets/images/mulan.png"
+    },
+    {
+      "precio": 600,
+      "id": 9,
+      "title": "Jazmín",
+      "image": "assets/images/jazmin.png"
+    },
+    {
+      "precio": 850,
+      "id": 10,
+      "title": "Mérida",
+      "image": "assets/images/merida.png"
+    },
+    {
+      "precio": 700,
+      "id": 11,
+      "title": "Tiana",
+      "image": "assets/images/tiana.png"
+    },
+    {
+      "precio": 700,
+      "id": 12,
+      "title": "Blanca Nieves",
+      "image": "assets/images/blanca_nieves.png"
+    }
+  ]
