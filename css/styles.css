@@ -122,19 +122,6 @@ address {
   line-height: inherit;
 }
 
-ul {
-  padding-left: 2rem;
-}
-
-ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-ul ul {
-  margin-bottom: 0;
-}
-
 blockquote {
   margin: 0 0 1rem;
 }
@@ -10362,4 +10349,31 @@ html {
 
 .copyright {
   background-color: #1a252f;
+}
+
+#categories-filter a {
+  display: flex;
+  color: white;
+  text-decoration: none;
+  list-style:none;
+  margin: 1rem;
+  background-color: #0063e5;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  transition: 0.1s;
+}
+
+#categories-filter a:hover {
+  background-color: #0A193C;
+}
+
+#categories-filter {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.button-filter, .category  {
+  list-style: none;
 }

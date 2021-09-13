@@ -1,74 +1,86 @@
 [
     {
       "id": 1,
-      "precio": 750,
+      "precio": 3040,
       "personaje": "Bella",
-      "image": "assets/images/bella.png"
+      "image": "assets/images/bella.png",
+      "categoría":"Princesas"
     },
     {
       "id": 2,
-      "precio": 600,
+      "precio": 2925,
       "personaje": "Ariel",
-      "image": "assets/images/ariel.png"
+      "image": "assets/images/ariel.png",
+      "categoría":"Princesas"
     },
     {
       "id": 3,
-      "precio": 650,
+      "precio": 2890,
       "personaje": "Moana",
-      "image": "assets/images/moana.png"
+      "image": "assets/images/moana.png",
+      "categoría":"Princesas"
     },
     {
       "id": 4,
-      "precio": 850,
+      "precio": 3000,
       "personaje": "Cenicienta",
-      "image": "assets/images/cenicienta.png"
+      "image": "assets/images/cenicienta.png",
+      "categoría":"Princesas"
     },
     {
       "id": 5,
-      "precio": 700,
+      "precio": 2940,
       "personaje": "Pocahontas",
-      "image": "assets/images/pocahontas.png"
+      "image": "assets/images/pocahontas.png",
+      "categoría":"Princesas"
     },
     {
       "id": 6,
-      "precio": 750,
+      "precio": 2950,
       "personaje": "Rapunzel",
-      "image": "assets/images/rapunzel.png"
+      "image": "assets/images/rapunzel.png",
+      "categoría":"Princesas"
     },
     {
       "id": 7,
-      "precio": 800,
+      "precio": 2800,
       "personaje": "Aurora",
-      "image": "assets/images/aurora.png"
+      "image": "assets/images/aurora.png",
+      "categoría":"Princesas"
     },
     {
       "id": 8,
-      "precio": 650,
+      "precio": 3125,
       "personaje": "Mulán",
-      "image": "assets/images/mulan.png"
+      "image": "assets/images/mulan.png",
+      "categoría":"Princesas"
     },
     {
       "id": 9,
-      "precio": 600,
+      "precio": 2870,
       "personaje": "Jazmín",
-      "image": "assets/images/jazmin.png"
+      "image": "assets/images/jazmin.png",
+      "categoría":"Princesas"
     },
     {
       "id": 10,
-      "precio": 850,
+      "precio": 3175,
       "personaje": "Mérida",
-      "image": "assets/images/merida.png"
+      "image": "assets/images/merida.png",
+      "categoría":"Princesas"
     },
     {
       "id": 11,
-      "precio": 700,
+      "precio": 3090,
       "personaje": "Tiana",
-      "image": "assets/images/tiana.png"
+      "image": "assets/images/tiana.png",
+      "categoría":"Princesas"
     },
     {
       "id": 12,
-      "precio": 700,
+      "precio": 2900,
       "personaje": "Blanca Nieves",
-      "image": "assets/images/blanca_nieves.png"
+      "image": "assets/images/blanca_nieves.png",
+      "categoría":"Princesas"
     }
   ]

@@ -54,13 +54,21 @@
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">¿Quién quieres ser hoy?</h2>
             </div>
         </section>
-        <div class="filter"> <!-- VER ESTOOOOO -->
-            <option value="all">Todos</option>
-            <option value="princesas">Princesas</option>
+        <div class="justify-content-center row d-flex">
+            <ul id="categories-filter">
+                <li class="button-filter">
+                    <a href="" class="filter" id="todas">TODOS</a>
+                </li>
+                <li class="category">
+                    <a href="" class="filter" id="princesas">PRINCESAS</a>
+                </li>
+                <li class="category">
+                    <a href="" class="filter" id="princesas">PRÍNCIPES</a>
+                </li>
+            </ul>
         </div>  
         <!-- Disfraces Carrito -->
         <div class="container">
-            <h4>Elegí tu disfraz VER SI DEJO O NO TÍTULO</h4>
             <div class="row justify-content-center" id="cards"></div>
         </div>             
         <!-- Template inventario -->
@@ -70,7 +78,10 @@
                     <img src="" class="car-img-top">
                     <div class="card-body">
                     <h5>Personaje</h5>
-                    <p>Precio</p>
+                    <div class="card-price">
+                    $ <span>Precio</span>
+                    </div>
+                    <br>
                     <button class="btn btn-dark">Alquilar</button>
                     </div>
                 </div>
@@ -85,6 +96,7 @@
                         <tr>        
                             <th scope="col">Id</th>  
                             <th scope="col">Personaje</th>
+                            <th scope="col">Talle</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Acción</th>
                             <th scope="col">Total</th>
@@ -93,7 +105,7 @@
                     <tbody id="disfraces"></tbody>
                     <tfoot>
                         <tr id="footer-table">
-                        <th scope="row" colspan="5"></th>
+                        <th scope="row" colspan="6">Aún no has elegido tu disfraz</th>
                     </tr>
                     </tfoot>
                 </table> 
@@ -102,6 +114,14 @@
                     <tr>
                     <th scope="row">id</th>
                         <td>Disfraz</td>
+                        <td>
+                            <select>
+                                <option value="S" selected="selected">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </td>
                         <td>Cantidad</td>
                         <td>
                             <button class="btn btn-info btn-sm">
@@ -116,17 +136,18 @@
                 </template>
                 <!-- Template suma carrito -->
                 <template id="template-carrito-footer">
-                    <th scope="row" colspan="2">Total disfraces</th>
+                    <th scope="row" colspan="3">Total disfraces</th>
                     <td>Cantidad</td>
                     <td>
                         <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                            Vaciar carrito
                         </button>
                     </td>
                     <td class="font-weight-bold">$ <span>Precio</span></td>
                 </template>
             </div>  
         </section>
-        <!-- Nosotros Section -->
+        <!-- Carousel Section -->
         <section class="carousel-disney">
             <div class="container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -184,7 +205,7 @@
                                 <label for="name">Nombre y apellido</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">Campo obligatorio.</div>
                             </div>
-                            <!-- Email address input -->
+                            <!-- Email input -->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="Ingresa tu email" data-sb-validations="required,email" />
                                 <label for="email">Email</label>
@@ -216,7 +237,7 @@
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
-                    <!-- Footer Location -->
+                    <!-- Footer Payment Methods -->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">ELEGÍ CÓMO PAGAR</h4>
                         <p>Podés pagar con crédito o débito, en efectivo, tranferencia desde tu homebanking o con tu cuenta de Mercado Pago</p>
@@ -234,7 +255,7 @@
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><img src="assets/github.png" width="50rem"></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/rafaela-dominici/" target="blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
                     </div>
-                    <!-- Footer About Text -->
+                    <!-- Footer VEEEEEEEEEEEEEEER -->
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">ENVÍOS A TODO EL PAÍS verrrrrr</h4>
                         <p class="lead mb-0">

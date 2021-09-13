@@ -11,12 +11,21 @@ const templateCarritoFotter = document.getElementById('template-carrito-footer')
 const footerTable = document.getElementById('footer-table');
 
 
-// Carga DOM
+// Evento - Carga DOM
 document.addEventListener('DOMContentLoaded', e => { 
     fetchData() 
 });
+
+
+// Evento - Agregar carrito
 cards.addEventListener('click', e => {
     agregarCarrito(e) 
+});
+
+
+// Evento - Agregar/eliminar disfraces de carrito
+disfraces.addEventListener('click', e => {
+    botonAction(e)
 });
 
 
@@ -32,7 +41,7 @@ const fetchData = async () => {
 const infoCards = data => {
     data.forEach(disfraz => {
         templateCard.querySelector('.btn-dark').dataset.id = disfraz.id;
-        templateCard.querySelector('p').textContent = disfraz.precio;
+        templateCard.querySelector('span').textContent = disfraz.precio;
         templateCard.querySelector('h5').textContent = disfraz.personaje;
         templateCard.querySelector('img').setAttribute("src", disfraz.image);
 
@@ -47,22 +56,22 @@ const infoCards = data => {
 const agregarCarrito = e => { 
     if (e.target.classList.contains('btn-dark')) { //tiene el elemento?
         setCarrito(e.target.parentElement);
-    }
+    };
     e.stopPropagation()
 };
 
 
 // Función para manipular carrito
 const setCarrito = objeto => {
-    const disfrazCompra = { //
+    const disfrazCompra = { 
         id: objeto.querySelector('.btn-dark').dataset.id,
-        precio: objeto.querySelector('p').textContent,
+        precio: objeto.querySelector('span').textContent,
         personaje: objeto.querySelector('h5').textContent,
         cantidad: 1
     };
  
     // Para sumar cantidades de disfraz duplicado
-    if (carrito.hasOwnProperty(disfrazCompra.id)) { //
+    if (carrito.hasOwnProperty(disfrazCompra.id)) { 
         disfrazCompra.cantidad = carrito[disfrazCompra.id].cantidad + 1; //para sumar 1 ud
     };
 
@@ -73,11 +82,11 @@ const setCarrito = objeto => {
 
 // Función para hacer push carrito
 const infoCarrito = () => {
-    disfraces.innerHTML = ''
+    disfraces.innerHTML = '';
     Object.values(carrito).forEach(disfrazCompra => { //desde setCarrito
         templateCarrito.querySelector('th').textContent = disfrazCompra.id;
         templateCarrito.querySelectorAll('td')[0].textContent = disfrazCompra.personaje; 
-        templateCarrito.querySelectorAll('td')[1].textContent = disfrazCompra.cantidad; 
+        templateCarrito.querySelectorAll('td')[2].textContent = disfrazCompra.cantidad; 
         templateCarrito.querySelector('.btn-info').dataset.id = disfrazCompra.id;
         templateCarrito.querySelector('.btn-danger').dataset.id = disfrazCompra.id;
         templateCarrito.querySelector('span').textContent = disfrazCompra.cantidad * disfrazCompra.precio;
@@ -86,5 +95,50 @@ const infoCarrito = () => {
         fragment.appendChild(clone);
     });
     disfraces.appendChild(fragment);
+
+    infoFooterCarrito();
 };
 
+
+// Función footer carrito - suma disfraces y vaciar carrito
+const infoFooterCarrito = () => {
+    footerTable.innerHTML = '';
+    if(Object.keys(carrito).length === 0) { //cuando Q=0  
+        footerTable.innerHTML = `<th scope="row" colspan="6">Aún no has elegido tu disfraz</th>`
+        return
+    };
+
+    const cantidadX = Object.values(carrito).reduce((sumaDisfraces, {cantidad}) => sumaDisfraces + cantidad, 0);
+    const precioX = Object.values(carrito).reduce((sumaDisfraces, {cantidad, precio}) => sumaDisfraces + cantidad * precio, 0);
+
+    templateCarritoFotter.querySelectorAll('td')[0].textContent = cantidadX;
+    templateCarritoFotter.querySelector('span').textContent = precioX;
+
+    const clone = templateCarritoFotter.cloneNode(true);
+    fragment.appendChild(clone);
+    footerTable.appendChild(fragment);
+
+    const vaciarCarrito = document.getElementById('vaciar-carrito');
+    vaciarCarrito.addEventListener('click', () => {
+        carrito = {};
+        infoCarrito();
+    });
+};
+
+
+
+const botonAction = e => {
+    if (e.target.classList.contains('btn-info')) {
+        console.log([e.target.dataset.id])
+        const disfrazCompra = carrito[e.target.dataset.id]
+        disfrazCompra.cantidad = [e.target.dataset.id].cantidad + 1
+        carrito[e.target.dataset.id] = {...disfrazCompra}
+    }
+
+    /* if (e.target.classList.contains('btn-danger')) {
+    disfrazCompra.cantidad = [e.target.dataset.id].cantidad - 1
+    infoCarrito()
+    } */
+}
+
+// ver lo del filtro de disfraces
