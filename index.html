@@ -35,7 +35,7 @@
         </nav>
         <!-- Masthead -->
         <header class="masthead bg-primary text-white text-center" id="page_top">
-            <div class="container d-flex align-items-center flex-column">
+            <div class="container-flui d-flex align-items-center flex-column">
                 <!-- Masthead Heading -->
                 <h1 class="masthead-heading text-uppercase mb-0">Quiero ser</h1>
                 <!-- Masthead Icon Divider -->
@@ -54,7 +54,8 @@
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">¿Quién quieres ser hoy?</h2>
             </div>
         </section>
-        <div class="justify-content-center row d-flex">
+        <!-- Disfraces filtros -->
+        <div class="justify-content-center">
             <ul id="categories-filter">
                 <li class="button-filter">
                     <a href="" class="filter" id="todas">TODOS</a>
@@ -63,7 +64,7 @@
                     <a href="" class="filter" id="princesas">PRINCESAS</a>
                 </li>
                 <li class="category">
-                    <a href="" class="filter" id="princesas">PRÍNCIPES</a>
+                    <a href="" class="filter" id="principes">PRÍNCIPES</a>
                 </li>
             </ul>
         </div>  
@@ -82,7 +83,7 @@
                     $ <span>Precio</span>
                     </div>
                     <br>
-                    <button class="btn btn-dark">Alquilar</button>
+                    <button class="btn btn-dark">Comprar</button>
                     </div>
                 </div>
             </div>
@@ -94,25 +95,25 @@
                 <table class="table">
                     <thead>
                         <tr>        
-                            <th scope="col">Id</th>  
-                            <th scope="col">Personaje</th>
-                            <th scope="col">Talle</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Acción</th>
-                            <th scope="col">Total</th>
+                            <th>Id</th>  
+                            <th>Personaje</th>
+                            <th>Talle</th>
+                            <th>Cantidad</th>
+                            <th>Acción</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody id="disfraces"></tbody>
                     <tfoot>
                         <tr id="footer-table">
-                        <th scope="row" colspan="6">Aún no has elegido tu disfraz</th>
+                        <th colspan="6">Aún no has elegido tu disfraz</th>
                     </tr>
                     </tfoot>
                 </table> 
                 <!-- Template disfraces en carrito -->
                 <template id="template-carrito">
                     <tr>
-                    <th scope="row">id</th>
+                    <th>id</th>
                         <td>Disfraz</td>
                         <td>
                             <select>
@@ -131,20 +132,25 @@
                                 -
                             </button>
                         </td>
-                        <td>$ <span>Precio</span></td>
+                        <td>$<span>Precio</span></td>
                     </tr>
                 </template>
                 <!-- Template suma carrito -->
-                <template id="template-carrito-footer">
-                    <th scope="row" colspan="3">Total disfraces</th>
+                <template id="template-carrito-total">
+                    <th colspan="3">Total disfraces</th>
                     <td>Cantidad</td>
                     <td>
                         <button class="btn btn-danger btn-sm" id="vaciar-carrito">
                             Vaciar carrito
                         </button>
                     </td>
-                    <td class="font-weight-bold">$ <span>Precio</span></td>
+                    <td class="font-weight-bold">$<span>Precio total</span></td>
                 </template>
+                <div id="btn-finalizar-compra">
+                    <button class="btn btn-primary tn-sm" id="finalizar-compra">
+                        Finalizar compra
+                    </button>
+                </div>
             </div>  
         </section>
         <!-- Carousel Section -->
