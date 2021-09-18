@@ -14,11 +14,15 @@ const totalCarrito = document.getElementById('total-carrito');
 // Evento - Carga DOM
 document.addEventListener('DOMContentLoaded', (e) => { 
     fetchData(); 
+    if (localStorage.getItem('verificar-carrito-vacio')) {
+        carrito = JSON.parse(localStorage.getItem('verificar-carrito-vacio'))
+        infoCarrito()
+    };
 });
 
 
 // Traer inventario de cards desde .json
-const fetchData = async () => {
+const fetchData = async (e) => {
     const res = await fetch('assets/json/inventario.json'); //esperar lectura de información
     const data = await res.json(); //esperar respuesta json y guardar información
     infoCards(data);
@@ -60,7 +64,7 @@ const setCarrito = objeto => {
     const disfrazCompra = { 
         id: objeto.querySelector('.btn-dark').dataset.id,
         precio: objeto.querySelector('span').textContent,
-        personaje: objeto.querySelector('h5').textContent,
+        personaje: objeto.querySelector('.card-personaje').textContent,
         cantidad: 1,
     };
  
@@ -75,10 +79,10 @@ const setCarrito = objeto => {
 
 
 // Función para hacer push carrito
-const infoCarrito = () => {
+const infoCarrito = (e) => {
     disfraces.innerHTML = '';
     Object.values(carrito).forEach(disfrazCompra => { //desde setCarrito
-        templateCarrito.querySelector('th').textContent = disfrazCompra.id;
+        templateCarrito.querySelector('.disfraz-id').textContent = disfrazCompra.id;
         templateCarrito.querySelector('.disfraz-carrito').textContent = disfrazCompra.personaje; 
         templateCarrito.querySelector('.cantidad-carrito').textContent = disfrazCompra.cantidad; 
         templateCarrito.querySelector('.btn-info').dataset.id = disfrazCompra.id;
@@ -90,7 +94,9 @@ const infoCarrito = () => {
     });
     disfraces.appendChild(fragment);
 
-    infoFooterCarrito();
+    infoTotalCarrito();
+
+    localStorage.setItem('verificar-carrito-vacio', JSON.stringify(carrito));
 };
 
 
@@ -100,10 +106,10 @@ disfraces.addEventListener('click', (e) => {
 });
 
 
-// Función footer carrito - suma disfraces y vaciar carrito
-const infoFooterCarrito = () => {
+// Función suma total y vaciar carrito
+const infoTotalCarrito = (e) => {
     totalCarrito.innerHTML = '';
-    if(Object.keys(carrito).length === 0) { //cuando Q=0  
+    if(Object.keys(carrito).length == 0) { //cuando Q=0  
         totalCarrito.innerHTML = `<th colspan="5">Aún no has elegido tu disfraz</th>` 
         return
     };
@@ -117,7 +123,7 @@ const infoFooterCarrito = () => {
     totalCarrito.appendChild(fragment);
 
     const vaciarCarrito = document.getElementById('vaciar-carrito');
-    vaciarCarrito.addEventListener('click', () => {
+    vaciarCarrito.addEventListener('click', (e) => {
         carrito = {};
 
         infoCarrito();
@@ -139,19 +145,38 @@ const botonAction = (e) => {
         const disfrazCompra = carrito[e.target.dataset.id];
         disfrazCompra.cantidad--;
 
-        if (disfrazCompra.cantidad === 0) {
+        if (disfrazCompra.cantidad == 0) {
             delete carrito[e.target.dataset.id]
         }
         else {
             carrito[e.target.dataset.id] = {...disfrazCompra}
         };
-    
+
         infoCarrito();
     };
       
-    if (disfrazCompra.cantidad === 0) {
+    if (disfrazCompra.cantidad == 0) {
         delete carrito[e.target.dataset.id]
+
+        infoCarrito();
     };
+    e.stopPropagation();
 };
 
-    
+
+/* // VER CÓMO HACER ESTO 
+Función para filtrar disfraces
+const filtroDisfraces = $('#categories-filter');
+function filtarAction (e) {
+    const filtro = e.target.value;
+    if (filtro == 'todas') {
+        showDisfraces(disfraces)
+    } else {
+        const filtroCategoria = disfraces.filtro(categoria == filtro)
+        showDisfraces(filtroCategoria)
+    }
+}
+filtroDisfraces.on('change', (e) => {
+    filtarAction (e)
+})
+ */

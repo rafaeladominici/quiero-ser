@@ -67,7 +67,7 @@
                     <a href="" class="filter" id="principes">PRÍNCIPES</a>
                 </li>
             </ul>
-        </div>  
+        </div>
         <!-- Disfraces Carrito -->
         <div class="container">
             <div class="row justify-content-center" id="cards"></div>
@@ -110,7 +110,7 @@
                 <!-- Template disfraces en carrito -->
                 <template id="template-carrito">
                     <tr>
-                    <th>id</th>
+                    <th class="disfraz-id">id</th>
                         <td class="disfraz-carrito">Disfraz</td>
                         <td class="talle">
                             <select>
@@ -229,7 +229,7 @@
                             <!-- Submit error message -->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button -->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Enviar</button>
+                            <button class="btn btn-primary disabled" id="submitButton" type="submit">Enviar</button>
                         </form>
                     </div>
                 </div>
@@ -240,8 +240,8 @@
             <div class="container">
                 <div class="row">
                     <!-- Footer Payment Methods -->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">ELEGÍ CÓMO PAGAR</h4>
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="text-uppercase">ELEGÍ CÓMO PAGAR</h4>
                         <p>Podés pagar con crédito o débito, en efectivo, tranferencia desde tu homebanking o con tu cuenta de Mercado Pago</p>
                         <div class="container flex-column">
                             <span><img src="assets/payment/visa.png" width="30rem" style="background-color: white; border-radius: 0.5rem;"></span>
@@ -252,19 +252,16 @@
                         </div>
                     </div>
                     <!-- Footer Social Icons -->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">ESTAMOS EN LA WEB</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><img src="assets/github.png" width="50rem"></a>
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="text-uppercase">ESTAMOS EN LA WEB</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/rafaeladominici"><img src="assets/github.png" width="50rem"></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/rafaela-dominici/" target="blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
                     </div>
-                    <!-- Footer VEEEEEEEEEEEEEEER -->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">ENVÍOS A TODO EL PAÍS verrrrrr</h4>
-                        <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
-                        </p>
+                    <!-- Footer Shipment -->
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="text-uppercase">ENVÍOS A TODO EL PAÍS</h4>
+                        <p>Coordinamos con vos el día y la franja horaria para que puedas recibir tu compra</p>
+                        <img src="assets/shipment.png" width="50rem"></a>
                     </div>
                 </div>
             </div>
@@ -273,9 +270,8 @@
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Todos los derechos reservados &copy; - Rafaela Dominici</small></div>
         </div>
-
         <!-- JQuery -->
-<!--         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>  PONER EL DE AJAX QUE NO ES LOCAL-->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>  
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/bs.js"></script>
