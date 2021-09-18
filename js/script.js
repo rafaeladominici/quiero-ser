@@ -8,28 +8,28 @@ const disfraces = document.getElementById('disfraces');
 const fragment = document.createDocumentFragment();
 const templateCarrito = document.getElementById('template-carrito').content;
 const templateCarritoTotal = document.getElementById('template-carrito-total').content;
-const footerTable = document.getElementById('footer-table');
+const totalCarrito = document.getElementById('total-carrito');
 
 
 // Evento - Carga DOM
 document.addEventListener('DOMContentLoaded', (e) => { 
-    fetchData() 
+    fetchData(); 
 });
 
 
 // Traer inventario de cards desde .json
 const fetchData = async () => {
     const res = await fetch('assets/json/inventario.json'); //esperar lectura de información
-    const data = await res.json() //esperar respuesta json y guardar información
-    infoCards(data)
+    const data = await res.json(); //esperar respuesta json y guardar información
+    infoCards(data);
 };
 
 
 // Función para los elementos de las cards
 const infoCards = data => {
     data.forEach(disfraz => {
-        templateCard.querySelector('img').setAttribute("src", disfraz.image);
-        templateCard.querySelector('h5').textContent = disfraz.personaje;
+        templateCard.querySelector('.card-imagen').setAttribute("src", disfraz.image);
+        templateCard.querySelector('.card-personaje').textContent = disfraz.personaje;
         templateCard.querySelector('span').textContent = disfraz.precio;
         templateCard.querySelector('.btn-dark').dataset.id = disfraz.id;
 
@@ -42,7 +42,7 @@ const infoCards = data => {
 
 // Evento - Agregar carrito
 cards.addEventListener('click', (e) => {
-    agregarCarrito(e) 
+    agregarCarrito(e); 
 });
 
 
@@ -79,11 +79,11 @@ const infoCarrito = () => {
     disfraces.innerHTML = '';
     Object.values(carrito).forEach(disfrazCompra => { //desde setCarrito
         templateCarrito.querySelector('th').textContent = disfrazCompra.id;
-        templateCarrito.querySelectorAll('td')[0].textContent = disfrazCompra.personaje; 
-        templateCarrito.querySelectorAll('td')[2].textContent = disfrazCompra.cantidad; 
+        templateCarrito.querySelector('.disfraz-carrito').textContent = disfrazCompra.personaje; 
+        templateCarrito.querySelector('.cantidad-carrito').textContent = disfrazCompra.cantidad; 
         templateCarrito.querySelector('.btn-info').dataset.id = disfrazCompra.id;
         templateCarrito.querySelector('.btn-danger').dataset.id = disfrazCompra.id;
-        templateCarrito.querySelector('span').textContent = disfrazCompra.cantidad * disfrazCompra.precio;
+        templateCarrito.querySelector('.precio-carrito').textContent = disfrazCompra.cantidad * disfrazCompra.precio;
 
         const clone = templateCarrito.cloneNode(true);
         fragment.appendChild(clone);
@@ -102,21 +102,19 @@ disfraces.addEventListener('click', (e) => {
 
 // Función footer carrito - suma disfraces y vaciar carrito
 const infoFooterCarrito = () => {
-    footerTable.innerHTML = '';
+    totalCarrito.innerHTML = '';
     if(Object.keys(carrito).length === 0) { //cuando Q=0  
-        footerTable.innerHTML = `<th colspan="6">Aún no has elegido tu disfraz</th>` 
+        totalCarrito.innerHTML = `<th colspan="5">Aún no has elegido tu disfraz</th>` 
         return
     };
 
-    const cantidadX = Object.values(carrito).reduce((sumaDisfraces, {cantidad}) => sumaDisfraces + cantidad, 0);
-    const precioX = Object.values(carrito).reduce((sumaDisfraces, {cantidad, precio}) => sumaDisfraces + cantidad * precio, 0);
+    const precioTotal = Object.values(carrito).reduce((sumaDisfraces, {cantidad, precio}) => sumaDisfraces + cantidad * precio, 0);
 
-    templateCarritoTotal.querySelectorAll('td')[0].textContent = cantidadX;
-    templateCarritoTotal.querySelector('span').textContent = precioX;
+    templateCarritoTotal.querySelector('span').textContent = precioTotal; //precio total
 
     const clone = templateCarritoTotal.cloneNode(true);
     fragment.appendChild(clone);
-    footerTable.appendChild(fragment);
+    totalCarrito.appendChild(fragment);
 
     const vaciarCarrito = document.getElementById('vaciar-carrito');
     vaciarCarrito.addEventListener('click', () => {
@@ -148,7 +146,7 @@ const botonAction = (e) => {
             carrito[e.target.dataset.id] = {...disfrazCompra}
         };
     
-        infoCarrito()
+        infoCarrito();
     };
       
     if (disfrazCompra.cantidad === 0) {
