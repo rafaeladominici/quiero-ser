@@ -15,8 +15,8 @@ const totalCarrito = document.getElementById('total-carrito');
 document.addEventListener('DOMContentLoaded', (e) => { 
     fetchData(); 
     if (localStorage.getItem('verificar-carrito-vacio')) {
-        carrito = JSON.parse(localStorage.getItem('verificar-carrito-vacio'))
-        infoCarrito()
+        carrito = JSON.parse(localStorage.getItem('verificar-carrito-vacio'));
+        infoCarrito();
     };
 });
 
@@ -29,10 +29,22 @@ const fetchData = async (e) => {
 };
 
 
+//////// FILTRO VERRRRRRRRRRR
+/* disfracesList.innerHTML = ""
+const filtrarPrincipes = async (e) => {
+    const dataFetch = await fetch('assets/json/inventario.json');
+    const response = await dataFetch.json();
+    const data = response.filter(el => el.category == 'principes');
+    infoCards();
+};
+
+$('#principes').on("click", filtrarPrincipes) */
+
+
 // Función para los elementos de las cards
 const infoCards = data => {
     data.forEach(disfraz => {
-        templateCard.querySelector('.card-imagen').setAttribute("src", disfraz.image);
+        templateCard.querySelector('.card-imagen').setAttribute('src', disfraz.image);
         templateCard.querySelector('.card-personaje').textContent = disfraz.personaje;
         templateCard.querySelector('span').textContent = disfraz.precio;
         templateCard.querySelector('.btn-dark').dataset.id = disfraz.id;
@@ -165,18 +177,30 @@ const botonAction = (e) => {
 
 
 /* // VER CÓMO HACER ESTO 
-Función para filtrar disfraces
+// Función para filtrar disfraces
+infoCards(data)
+
 const filtroDisfraces = $('#categories-filter');
 function filtarAction (e) {
     const filtro = e.target.value;
     if (filtro == 'todas') {
-        showDisfraces(disfraces)
+        infoCards(data)
     } else {
         const filtroCategoria = disfraces.filtro(categoria == filtro)
-        showDisfraces(filtroCategoria)
+        infoCards(filtroCategoria)
     }
 }
 filtroDisfraces.on('change', (e) => {
     filtarAction (e)
-})
- */
+}) */
+
+//VERRRRRRRRRRRRRRRRRRRRRRRRRRR
+$(document).ready(function() {
+    //totalCarrito.innerHTML = '';
+    if(Object.keys(carrito).length == 0) {
+        $('#finalizar-compra').attr('disabled', false);
+        
+    } else {
+        $('#finalizar-compra').attr('disabled', true);
+    }
+});
