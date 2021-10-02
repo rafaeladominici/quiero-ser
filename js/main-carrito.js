@@ -29,6 +29,27 @@ const fetchData = async (e) => {
 };
 
 
+// filtro
+/* showDisfraces(stock)
+const filterDisfraces = $('#categories-filter')
+function filtrar (e) {
+    const filter = e.target.value;
+
+    if (filter == 'todas') {
+        showDisfraces(stock)
+    } else {
+        const filterCategory = stock.filter(el => el.category == filter)
+        showDisfraces(filterCategory)
+    }
+}
+
+filterDisfraces.on('change', (e) => {
+    filtrar(e)
+}) */
+
+
+
+
 //////// FILTRO VERRRRRRRRRRR
 /* disfracesList.innerHTML = ""
 const filtrarPrincipes = async (e) => {
@@ -121,7 +142,7 @@ disfraces.addEventListener('click', (e) => {
 // Función suma total y vaciar carrito
 const infoTotalCarrito = (e) => {
     totalCarrito.innerHTML = '';
-    if(Object.keys(carrito).length == 0) { //cuando Q=0  
+    if (Object.keys(carrito).length == 0) { //cuando Q=0  
         totalCarrito.innerHTML = `<th colspan="5">Aún no has elegido tu disfraz</th>` 
         return
     };
@@ -176,11 +197,8 @@ const botonAction = (e) => {
 };
 
 
-/* // VER CÓMO HACER ESTO 
-// Función para filtrar disfraces
-infoCards(data)
 
-const filtroDisfraces = $('#categories-filter');
+/*const filtroDisfraces = $('#categories-filter');
 function filtarAction (e) {
     const filtro = e.target.value;
     if (filtro == 'todas') {
@@ -192,15 +210,23 @@ function filtarAction (e) {
 }
 filtroDisfraces.on('change', (e) => {
     filtarAction (e)
-}) */
+})
 
 //VERRRRRRRRRRRRRRRRRRRRRRRRRRR
 $(document).ready(function() {
-    //totalCarrito.innerHTML = '';
+    totalCarrito.innerHTML = '';
     if(Object.keys(carrito).length == 0) {
-        $('#finalizar-compra').attr('disabled', false);
+        $('#finalizar-compra').attr('disabled', true);
         
     } else {
-        $('#finalizar-compra').attr('disabled', true);
+        $('#finalizar-compra').attr('disabled', false);
     }
 });
+$(document).ready(function() {
+    if (Object.keys(carrito).length == 0) {
+        $('.boton-finalizar-compra').hide(); 
+    } return /* else {
+        $('.boton-finalizar-compra').show();
+    }
+    //return
+})*/

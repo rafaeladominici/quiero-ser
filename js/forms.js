@@ -25,10 +25,35 @@ $('#provincia').change(function (e) {
 });
 
 
-
-// Pago con tarjeta
-$(document).ready(function () {
-    $('#toggle-campos').on('click', (e) => {
-        $('.datos-tarjeta').slideToggle();
+// Desaparecer modal
+$(document).ready(() => {
+    $('#confirmar-compra').on('click', () => {
+        $('.modal-pago').hide();
     });
 });
+
+$(document).ready(() => {
+    $('#confirmar-compra').on('click', () => {
+        $('.modal-envio').hide();
+    });
+});
+
+
+// Warning formulario incompleto
+$('#btn-elegir-medio-pago').click(function (e) {
+    if ($('#nombre').val() != "" &&
+    $('#provincia').val() != "" &&
+    $('#localidad').val() != "" &&
+    $('#direccion').val() != "" &&
+    $('#telefono').val() != "") {
+        e.preventDefault();
+        $('.modal-pago').modal('show');
+    } else {
+        swal({
+            title: 'El formulario está incompleto',
+            icon: 'warning',
+            button: 'OK',
+        });
+    };
+});
+
