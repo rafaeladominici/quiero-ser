@@ -1,4 +1,8 @@
-/* function filtrarProductos (e) {
+/* buscadorBotones = document.querySelector('#categories-filter');
+document.addEventListener('DOMContentLoaded', filtrarProductosBoton);
+
+
+function filtrarProductos (e) {
     e.preventDefault();
     $.ajax({
         url:'assets/json/inventario.json',

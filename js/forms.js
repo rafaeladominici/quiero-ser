@@ -39,7 +39,7 @@ $(document).ready(() => {
 });
 
 
-// Warning formulario incompleto
+
 $('#btn-elegir-medio-pago').click(function (e) {
     if ($('#nombre').val() != "" &&
     $('#provincia').val() != "" &&
@@ -57,3 +57,25 @@ $('#btn-elegir-medio-pago').click(function (e) {
     };
 });
 
+
+
+
+
+
+/* // Warning formulario incompleto
+$('#btn-elegir-medio-pago').click(function (e) {
+    if ($('#nombre').val() != "" &&
+    $('#provincia').val() != "" &&
+    $('#localidad').val() != "" &&
+    $('#direccion').val() != "" &&
+    $('#telefono').val() != "") {
+        e.preventDefault();
+        $('.modal-pago').modal('show');
+    } else {
+        swal({
+            title: 'El formulario está incompleto',
+            icon: 'warning',
+            button: 'OK',
+        });
+    };
+}); */

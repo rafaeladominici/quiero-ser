@@ -47,9 +47,6 @@ filterDisfraces.on('change', (e) => {
     filtrar(e)
 }) */
 
-
-
-
 //////// FILTRO VERRRRRRRRRRR
 /* disfracesList.innerHTML = ""
 const filtrarPrincipes = async (e) => {
@@ -143,9 +140,12 @@ disfraces.addEventListener('click', (e) => {
 const infoTotalCarrito = (e) => {
     totalCarrito.innerHTML = '';
     if (Object.keys(carrito).length == 0) { //cuando Q=0  
-        totalCarrito.innerHTML = `<th colspan="5">Aún no has elegido tu disfraz</th>` 
+        totalCarrito.innerHTML = `<th colspan="5">Aún no has elegido tu disfraz</th>`
+        $('.boton-finalizar-compra').hide(); 
         return
     };
+
+    $('.boton-finalizar-compra').show();
 
     const precioTotal = Object.values(carrito).reduce((sumaDisfraces, {cantidad, precio}) => sumaDisfraces + cantidad * precio, 0);
 
@@ -166,7 +166,7 @@ const infoTotalCarrito = (e) => {
 
 // Botones más/menos
 const botonAction = (e) => {
-    if (e.target.classList.contains("btn-info")) {
+    if (e.target.classList.contains('btn-info')) {
         const disfrazCompra = carrito[e.target.dataset.id];
         disfrazCompra.cantidad++;
         carrito[e.target.dataset.id] = {...disfrazCompra};
@@ -197,6 +197,14 @@ const botonAction = (e) => {
 };
 
 
+// Vaciar carrito al finalizar compra
+const vaciarCarrito = document.getElementById('btn-mickey-close');
+    vaciarCarrito.addEventListener('click', (e) => {
+        carrito = {};
+
+        infoCarrito();
+    });
+
 
 /*const filtroDisfraces = $('#categories-filter');
 function filtarAction (e) {
@@ -210,23 +218,4 @@ function filtarAction (e) {
 }
 filtroDisfraces.on('change', (e) => {
     filtarAction (e)
-})
-
-//VERRRRRRRRRRRRRRRRRRRRRRRRRRR
-$(document).ready(function() {
-    totalCarrito.innerHTML = '';
-    if(Object.keys(carrito).length == 0) {
-        $('#finalizar-compra').attr('disabled', true);
-        
-    } else {
-        $('#finalizar-compra').attr('disabled', false);
-    }
-});
-$(document).ready(function() {
-    if (Object.keys(carrito).length == 0) {
-        $('.boton-finalizar-compra').hide(); 
-    } return /* else {
-        $('.boton-finalizar-compra').show();
-    }
-    //return
 })*/
