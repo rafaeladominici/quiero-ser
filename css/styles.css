@@ -1290,32 +1290,6 @@ html {
   background-color: #1a252f;
 }
 
-#categories-filter a {
-  display: flex;
-  color: white;
-  text-decoration: none;
-  list-style: none;
-  margin: 0.25rem;
-  background-color: #0063e5;
-  padding: 0.8rem;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  transition: 0.1s;
-}
-
-#categories-filter a:hover {
-  background-color: #0A193C;
-}
-
-#categories-filter {
-  display: flex;
-  justify-content: center;
-}
-
-.button-filter, .category  {
-  list-style: none;
-}
-
 .modal {
   position: fixed;
   top: 0;

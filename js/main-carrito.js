@@ -29,36 +29,6 @@ const fetchData = async (e) => {
 };
 
 
-// filtro
-/* showDisfraces(stock)
-const filterDisfraces = $('#categories-filter')
-function filtrar (e) {
-    const filter = e.target.value;
-
-    if (filter == 'todas') {
-        showDisfraces(stock)
-    } else {
-        const filterCategory = stock.filter(el => el.category == filter)
-        showDisfraces(filterCategory)
-    }
-}
-
-filterDisfraces.on('change', (e) => {
-    filtrar(e)
-}) */
-
-//////// FILTRO VERRRRRRRRRRR
-/* disfracesList.innerHTML = ""
-const filtrarPrincipes = async (e) => {
-    const dataFetch = await fetch('assets/json/inventario.json');
-    const response = await dataFetch.json();
-    const data = response.filter(el => el.category == 'principes');
-    infoCards();
-};
-
-$('#principes').on("click", filtrarPrincipes) */
-
-
 // Función para los elementos de las cards
 const infoCards = data => {
     data.forEach(disfraz => {
@@ -203,19 +173,4 @@ const vaciarCarrito = document.getElementById('btn-mickey-close');
         carrito = {};
 
         infoCarrito();
-    });
-
-
-/*const filtroDisfraces = $('#categories-filter');
-function filtarAction (e) {
-    const filtro = e.target.value;
-    if (filtro == 'todas') {
-        infoCards(data)
-    } else {
-        const filtroCategoria = disfraces.filtro(categoria == filtro)
-        infoCards(filtroCategoria)
-    }
-}
-filtroDisfraces.on('change', (e) => {
-    filtarAction (e)
-})*/
+});
