@@ -1,5 +1,3 @@
-// Para comentar todo junto: alt + shift + a
-
 // Constantes y variables
 let carrito = {};
 const cards = document.getElementById('cards');
@@ -9,9 +7,10 @@ const fragment = document.createDocumentFragment();
 const templateCarrito = document.getElementById('template-carrito').content;
 const templateCarritoTotal = document.getElementById('template-carrito-total').content;
 const totalCarrito = document.getElementById('total-carrito');
+const vaciarCarrito = document.getElementById('btn-mickey-close');
 
 
-// Evento - Carga DOM
+// Carga DOM
 document.addEventListener('DOMContentLoaded', (e) => { 
     fetchData(); 
     if (localStorage.getItem('verificar-carrito-vacio')) {
@@ -23,13 +22,13 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 // Traer inventario de cards desde .json
 const fetchData = async (e) => {
-    const res = await fetch('assets/json/inventario.json'); //esperar lectura de información
-    const data = await res.json(); //esperar respuesta json y guardar información
+    const response = await fetch('assets/json/inventario.json');
+    const data = await response.json();
     infoCards(data);
 };
 
 
-// Función para los elementos de las cards
+// Elementos de las cards
 const infoCards = data => {
     data.forEach(disfraz => {
         templateCard.querySelector('.card-imagen').setAttribute('src', disfraz.image);
@@ -44,22 +43,20 @@ const infoCards = data => {
 };
 
 
-// Evento - Agregar carrito
+// Agregar carrito
 cards.addEventListener('click', (e) => {
     agregarCarrito(e); 
 });
 
 
-// Función para agregar al carrito
 const agregarCarrito = (e) => { 
-    if (e.target.classList.contains('btn-dark')) { //tiene el elemento?
+    if (e.target.classList.contains('btn-dark')) {
         setCarrito(e.target.parentElement);
     };
     e.stopPropagation();
 };
 
 
-// Función para manipular carrito
 const setCarrito = objeto => {
     const disfrazCompra = { 
         id: objeto.querySelector('.btn-dark').dataset.id,
@@ -69,19 +66,19 @@ const setCarrito = objeto => {
     };
  
     // Para sumar cantidades de disfraz duplicado
-    if (carrito.hasOwnProperty(disfrazCompra.id)) { //chequeo boolean
-        disfrazCompra.cantidad = carrito[disfrazCompra.id].cantidad + 1; //sumar 1 ud
+    if (carrito.hasOwnProperty(disfrazCompra.id)) { 
+        disfrazCompra.cantidad = carrito[disfrazCompra.id].cantidad + 1;
     };
 
-    carrito[disfrazCompra.id] = {...disfrazCompra}; //suma disfraces en carrito
+    carrito[disfrazCompra.id] = {...disfrazCompra};
     infoCarrito();
 };
 
 
-// Función para hacer push carrito
+// Push carrito
 const infoCarrito = (e) => {
     disfraces.innerHTML = '';
-    Object.values(carrito).forEach(disfrazCompra => { //desde setCarrito
+    Object.values(carrito).forEach(disfrazCompra => {
         templateCarrito.querySelector('.disfraz-id').textContent = disfrazCompra.id;
         templateCarrito.querySelector('.disfraz-carrito').textContent = disfrazCompra.personaje; 
         templateCarrito.querySelector('.cantidad-carrito').textContent = disfrazCompra.cantidad; 
@@ -100,16 +97,16 @@ const infoCarrito = (e) => {
 };
 
 
-// Evento - Agregar/eliminar disfraces de carrito
+// Agregar/eliminar disfraces
 disfraces.addEventListener('click', (e) => {
-    botonAction(e)
+    botonAction(e);
 });
 
 
-// Función suma total y vaciar carrito
+// Suma total y vaciar carrito
 const infoTotalCarrito = (e) => {
     totalCarrito.innerHTML = '';
-    if (Object.keys(carrito).length == 0) { //cuando Q=0  
+    if (Object.keys(carrito).length == 0) {
         totalCarrito.innerHTML = `<th colspan="5">Aún no has elegido tu disfraz</th>`
         $('.boton-finalizar-compra').hide(); 
         return
@@ -119,7 +116,7 @@ const infoTotalCarrito = (e) => {
 
     const precioTotal = Object.values(carrito).reduce((sumaDisfraces, {cantidad, precio}) => sumaDisfraces + cantidad * precio, 0);
 
-    templateCarritoTotal.querySelector('span').textContent = precioTotal; //precio total
+    templateCarritoTotal.querySelector('span').textContent = precioTotal; 
 
     const clone = templateCarritoTotal.cloneNode(true);
     fragment.appendChild(clone);
@@ -132,6 +129,14 @@ const infoTotalCarrito = (e) => {
         infoCarrito();
     });
 };
+
+
+// Vaciar carrito al finalizar compra
+vaciarCarrito.addEventListener('click', (e) => {
+    carrito = {};
+    
+    infoCarrito();
+});
 
 
 // Botones más/menos
@@ -152,7 +157,7 @@ const botonAction = (e) => {
             delete carrito[e.target.dataset.id]
         }
         else {
-            carrito[e.target.dataset.id] = {...disfrazCompra}
+            carrito[e.target.dataset.id] = {...disfrazCompra};
         };
 
         infoCarrito();
@@ -165,12 +170,3 @@ const botonAction = (e) => {
     };
     e.stopPropagation();
 };
-
-
-// Vaciar carrito al finalizar compra
-const vaciarCarrito = document.getElementById('btn-mickey-close');
-    vaciarCarrito.addEventListener('click', (e) => {
-        carrito = {};
-
-        infoCarrito();
-});
