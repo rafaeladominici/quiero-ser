@@ -1,2 +1,2 @@
-# quiero-ser
-Carrito Disney - JS
+## quiero-ser
+Carrito Disney - Primer proyeco en JavaScript
